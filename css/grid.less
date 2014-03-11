@@ -8,6 +8,8 @@
 @blue: #84B4BF;
 @red: #40121E;
 @greyBlue: #B8C3D9;
+@white: #fff;
+@black: #000;
 
 @font: 'Open Sans', sans-serif;
 
@@ -189,23 +191,42 @@ nav {
 }
 
 main {
-	height: 1000px;
-	padding: 60px 0 0 0;
+	background-color: @light;
+	padding: 2rem;
+	text-align: center;
 
 	h2 {
 		color: @dark;
 		.light;
-		padding: 3rem 0 0 0;
+		font-size: 10vw;
+		padding: 4rem 0 0 0;
 		text-align: center;
 		width: 100%;
 	}
 
 	p {
 		color: darken(@greyBlue, 10%);
+		font-size: 4vw;
 		.heavy;
 		padding: 0.5em 2em;
 		text-align: center;
 		width: 100%;
+	}
+
+	article {
+		background-color: @white;
+		.box-shadow(0, 1px, 20px, 2px, #dfdfdf);
+		display: inline-block;
+		margin: 2em 0;
+		width: 100%;
+
+		p {
+			color: @dark;
+			font-size: 5vw;
+			.light;
+			padding: 1rem;
+			text-align: left;
+		}
 	}
 }
 
