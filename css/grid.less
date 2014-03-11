@@ -12,6 +12,21 @@
 @font: 'Open Sans', sans-serif;
 
 // mixins
+.link (@color: @light) {
+	a,
+	a:link,
+	a:visited,
+	a:hover,
+	a:active {
+		color: @color;
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
 .transition (@time: 300ms, @target: all, @type: linear) {
 	transition: @time @target @type;
 	-webkit-transition: @time @target @type;
@@ -206,18 +221,7 @@ footer {
 		text-align: center;
 		width: 100%;
 
-		a,
-		a:link,
-		a:visited,
-		a:hover,
-		a:active {
-			color: @light;
-			text-decoration: none;
-
-			&:hover {
-				text-decoration: underline;
-			}
-		}
+		.link;
 	}
 }
 
