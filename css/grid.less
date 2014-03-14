@@ -215,8 +215,9 @@ main {
 
 	article {
 		background-color: @white;
-		.box-shadow(0, 3px, 5px, 2px, #dfdfdf);
+		.box-shadow(0, 3px, 5px, 2px, lighten(@black, 90%));
 		display: inline-block;
+		height: 60%;
 		margin: 2em 0;
 		width: 100%;
 
@@ -224,7 +225,7 @@ main {
 			color: @dark;
 			font-size: 5vw;
 			.light;
-			padding: 1rem;
+			padding: 2rem;
 			text-align: left;
 		}
 	}
