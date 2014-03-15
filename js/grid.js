@@ -1,5 +1,6 @@
 $(document).ready(function() {
 	function _init() {
+		// create nav interation
 		$('.js-nav-btn').on('click', function() {
 			$('.js-nav-btn, nav').toggleClass('visible');
 		});
@@ -10,7 +11,7 @@ $(document).ready(function() {
 		});
 
 		// resize the splash screen
-		$('main').css('height', $(window).height() - 60);
+		$('.welcome').css('height', $(window).height());
 	}
 
 	_init();

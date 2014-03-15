@@ -14,13 +14,15 @@
 @font: 'Open Sans', sans-serif;
 
 // mixins
-.link (@color: @light) {
+.link (@color: @light, @weight: 300) {
 	a,
 	a:link,
 	a:visited,
 	a:hover,
 	a:active {
 		color: @color;
+		font-size: 5vw;
+		font-weight: @weight;
 		text-decoration: none;
 	}
 
@@ -74,6 +76,7 @@ main {
 
 html,
 body {
+	background-color: @light;
 	font: 16px/1 @font;
 	height: 100%;
 	width: 100%;
@@ -104,6 +107,37 @@ img {
 
 .heavy {
 	font-weight: 600;
+}
+
+a[class^="btn"] {
+	background-color: lighten(@red, 30%);
+	border-radius: 0.25em;
+	color: @white;
+	display: inline-block;
+	font-size: 5vw;
+	line-height: 3;
+	margin: 0.5em 0;
+	text-decoration: none;
+	.transition();
+}
+
+a[class^="btn"]:hover {
+	background-color: lighten(@red, 20%);
+}
+
+.btn-small {
+	height: 3em;
+	width: 30%;
+}
+
+.btn-reg {
+	height: 3em;
+	width: 50%;
+}
+
+.btn-large {
+	height: 3em;
+	width: 80%;
 }
 
 // main styles = MOBILE FIRST!
@@ -176,6 +210,7 @@ nav {
 				border-bottom: 1px solid @greyBlue;
 				color: @light;
 				display: inline-block;
+				font-size: 5vw;
 				.light;
 				padding: 1em;
 				text-decoration: none;
@@ -190,8 +225,7 @@ nav {
 	}
 }
 
-main {
-	background-color: @light;
+.welcome {
 	padding: 2rem;
 	text-align: center;
 
@@ -205,8 +239,8 @@ main {
 	}
 
 	p {
-		color: darken(@greyBlue, 10%);
-		font-size: 4vw;
+		color: lighten(@red, 30%);
+		font-size: 5vw;
 		.heavy;
 		padding: 0.5em 2em;
 		text-align: center;
@@ -231,19 +265,50 @@ main {
 	}
 }
 
+main {
+	text-align: center;
+
+	h2 {
+		color: lighten(@red, 30%);
+		font-size: 7vw;
+		.light();
+		padding: 1rem;
+	}
+
+	h3 {
+		border-bottom: 1px solid @greyBlue;
+		color: darken(@greyBlue, 30%);
+		font-size: 6vw;
+		.light();
+		margin: 2rem 2rem 1rem;
+		padding-bottom: 0.25em;
+		text-align: left;
+	}
+
+	p {
+		.light();
+		font-size: 5vw;
+		line-height: 1.5;
+		padding: 0 2rem 1rem;
+		text-align: left;
+
+		.link(lighten(@red, 30%), 500);
+	}
+}
+
 footer {
 	background-color: @dark;
 	color: @light;
-	height: 60px;
+	margin-top: 2rem;
 	width: 100%;
 
 	small {
 		display: block;
-		padding: 1.5em;
+		line-height: 4.5;
 		text-align: center;
 		width: 100%;
 
-		.link;
+		.link
 	}
 }
 
