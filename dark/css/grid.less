@@ -3,19 +3,23 @@
 @black: #000;
 @blue: #06C;
 
+@import url(http://fonts.googleapis.com/css?family=Cutive+Mono);
+
+@monoFont: 'Cutive Mono', serif;
+
 // mixins
 .gradient(@color1, @color2) {
-	background: @color1; /* Old browsers */
-	background: -moz-linear-gradient(top,  @color1 0%, @color2 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@color1), color-stop(100%,@color2)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  @color1 0%,@color2 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  @color1 0%,@color2 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  @color1 0%,@color2 100%); /* IE10+ */
-	background: linear-gradient(to bottom,  @color1 0%,@color2 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@color1', endColorstr='@color2',GradientType=0 ); /* IE6-9 */
+	background: @color1;
+	background: -moz-linear-gradient(top,  @color1 0%, @color2 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@color1), color-stop(100%,@color2));
+	background: -webkit-linear-gradient(top,  @color1 0%,@color2 100%);
+	background: -o-linear-gradient(top,  @color1 0%,@color2 100%);
+	background: -ms-linear-gradient(top,  @color1 0%,@color2 100%);
+	background: linear-gradient(to bottom,  @color1 0%,@color2 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@color1', endColorstr='@color2',GradientType=0 );
 }
 
-.transition(@time, @target, @type) {
+.transition(@time: 200ms, @target: all, @type: linear) {
 	transition: @time @target @type;
 	-webkit-transition: @time @target @type;
 }
@@ -32,8 +36,7 @@
 
 html,
 body {
-	font: 16px/1 Arial;
-	.gradient(@blue, lighten(@blue, 20%));
+	font: 16px/1 @monoFont;
 	height: 100%;
 	width: 100%;
 }
@@ -53,18 +56,19 @@ header {
 			position: absolute;
 			text-align: center;
 			width: 10vw;
-
-			&:after {
-				content: "+";
-			}
-
-			&.visible {
-				&:after {
-					content: "–";
-				}
-			}
+			z-index: 1;
 		}
 	}
+}
+
+nav {
+
+}
+
+main {
+	.gradient(@blue, lighten(@blue, 20%));
+	height: 100%;
+	width: 100%;
 }
 
 // media queries
