@@ -1,0 +1,75 @@
+// variables
+@white: #fff;
+@black: #000;
+@blue: #06C;
+
+@import url(http://fonts.googleapis.com/css?family=Cutive+Mono);
+
+@monoFont: 'Cutive Mono', serif;
+
+// mixins
+.gradient(@color1, @color2) {
+	background: @color1;
+	background: -moz-linear-gradient(top,  @color1 0%, @color2 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@color1), color-stop(100%,@color2));
+	background: -webkit-linear-gradient(top,  @color1 0%,@color2 100%);
+	background: -o-linear-gradient(top,  @color1 0%,@color2 100%);
+	background: -ms-linear-gradient(top,  @color1 0%,@color2 100%);
+	background: linear-gradient(to bottom,  @color1 0%,@color2 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@color1', endColorstr='@color2',GradientType=0 );
+}
+
+.transition(@time: 200ms, @target: all, @type: linear) {
+	transition: @time @target @type;
+	-webkit-transition: @time @target @type;
+}
+
+// reset
+* {
+	border-box: border-box;
+	-moz-border-box: border-box;
+	-webkit-border-box: border-box;
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+
+html,
+body {
+	font: 16px/1 @monoFont;
+	height: 100%;
+	width: 100%;
+}
+
+// main styles
+header {
+	nav {
+		span {
+			background-color: @white;
+			border-radius: 2em;
+			color: @blue;
+			cursor: pointer;
+			display: block;
+			font-size: 10vw;
+			height: 10vw;
+			margin: 1rem;
+			position: absolute;
+			text-align: center;
+			width: 10vw;
+			z-index: 1;
+		}
+	}
+}
+
+nav {
+
+}
+
+main {
+	.gradient(@blue, lighten(@blue, 20%));
+	height: 100%;
+	width: 100%;
+}
+
+// media queries
+
