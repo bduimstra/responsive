@@ -1,10 +1,9 @@
 // variables
+@import url(http://fonts.googleapis.com/css?family=Cutive+Mono);
+
 @white: #fff;
 @black: #000;
 @blue: #06C;
-
-@import url(http://fonts.googleapis.com/css?family=Cutive+Mono);
-
 @monoFont: 'Cutive Mono', serif;
 
 // mixins
@@ -24,6 +23,31 @@
 	-webkit-transition: @time @target @type;
 }
 
+.h-align {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	-webkit-transform: translateX(-50%);
+}
+
+.v-align {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+}
+
+.v-h-align {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translateX(-50%) translateY(-50%);
+	-ms-transform: translateX(-50%) translateY(-50%);
+	-webkit-transform: translateX(-50%) translateY(-50%);
+}
+
 // reset
 * {
 	border-box: border-box;
@@ -38,37 +62,85 @@ html,
 body {
 	font: 16px/1 @monoFont;
 	height: 100%;
+	overflow-x: hidden;
 	width: 100%;
 }
 
 // main styles
 header {
-	nav {
-		span {
-			background-color: @white;
-			border-radius: 2em;
-			color: @blue;
-			cursor: pointer;
-			display: block;
-			font-size: 10vw;
-			height: 10vw;
-			margin: 1rem;
-			position: absolute;
-			text-align: center;
-			width: 10vw;
-			z-index: 1;
+	z-index: 10;
+
+	span {
+		background-color: @white;
+		border-radius: 2em;
+		color: @blue;
+		cursor: pointer;
+		display: block;
+		font-size: 10vw;
+		height: 10vw;
+		margin: 1rem;
+		position: absolute;
+		text-align: center;
+		.transition();
+		width: 10vw;
+
+		&.nav-visible {
+			transform: rotate(-180deg);
+			-webkit-transform: rotate(-180deg);
 		}
 	}
 }
 
 nav {
+	background: @black; 
+	height: 100%;
+	position: absolute;
+	.transition();
+	width: 50%;
 
+	&.nav-visible {
+		width: 80%;
+	}
+
+	ul {
+		list-style: none;
+		.v-align;
+		width: 100%;
+
+		li {
+			a {
+				color: @white;
+				display: inline-block;
+				padding: 1rem;
+				text-decoration: none;
+				width: 100%;
+			}
+		}
+	}
 }
 
 main {
 	.gradient(@blue, lighten(@blue, 20%));
 	height: 100%;
+	.transition(300ms, all, linear);
 	width: 100%;
+
+	&.nav-visible {
+		margin-left: 80%;
+	}
+}
+
+.welcome {
+	color: @white;
+	.v-h-align;
+	width: 70%;
+
+	h2 {
+		padding: 0 0 1rem 0;
+	}
+
+	p {
+	}
 }
 
 // media queries
