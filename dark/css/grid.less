@@ -23,8 +23,16 @@
 	-webkit-transition: @time @target @type;
 }
 
+.box-shadow(@px1: 1px, @px2: 1px, @blur: 10px, @spread: 3px, @color: @black) {
+	box-shadow: @px1 @px2 @blur @spread @color;
+	-webkit-box-shadow: @px1 @px2 @blur @spread @color;
+}
+
+.text-shadow(@px1: 1px, @px2: 1px, @spread: 2px, @color: @black) {
+	text-shadow: @px1 @px2 @spread @color;
+}
+
 .h-align {
-	position: absolute;
 	left: 50%;
 	transform: translateX(-50%);
 	-ms-transform: translateX(-50%);
@@ -32,7 +40,6 @@
 }
 
 .v-align {
-	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
 	-ms-transform: translateY(-50%);
@@ -40,7 +47,6 @@
 }
 
 .v-h-align {
-	position: absolute;
 	left: 50%;
 	top: 50%;
 	transform: translateX(-50%) translateY(-50%);
@@ -50,9 +56,9 @@
 
 // reset
 * {
-	border-box: border-box;
-	-moz-border-box: border-box;
-	-webkit-border-box: border-box;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
 	margin: 0;
 	padding: 0;
 	position: relative;
@@ -67,8 +73,13 @@ body {
 }
 
 // main styles
+body.preload * {
+	transition: none !important;
+	-webkit-transition: none !important;
+}
+
 header {
-	z-index: 10;
+	z-index: 2;
 
 	span {
 		background-color: @white;
@@ -92,7 +103,7 @@ header {
 }
 
 nav {
-	background: @black; 
+	background-color: darken(@blue, 20%); 
 	height: 100%;
 	position: absolute;
 	.transition();
@@ -108,19 +119,31 @@ nav {
 		width: 100%;
 
 		li {
-			a {
+			a,
+			a:link,
+			a:visited,
+			a:hover,
+			&:active {
 				color: @white;
 				display: inline-block;
 				padding: 1rem;
 				text-decoration: none;
 				width: 100%;
 			}
+			a:hover {
+				background: darken(@blue, 10%);
+
+				&:after {
+					content: " →";
+				}
+			}
 		}
 	}
 }
 
 main {
-	.gradient(@blue, lighten(@blue, 20%));
+	background-color: lighten(@blue, 30%);
+	//.gradient(@blue, lighten(@blue, 20%));
 	height: 100%;
 	.transition(300ms, all, linear);
 	width: 100%;
@@ -131,12 +154,14 @@ main {
 }
 
 .welcome {
-	color: @white;
+	color: darken(@blue, 20%);
 	.v-h-align;
 	width: 70%;
+	z-index: 1;
 
 	h2 {
 		padding: 0 0 1rem 0;
+		//.text-shadow(1px, 1px, 1px, darken(@blue, 20%));
 	}
 
 	p {

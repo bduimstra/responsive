@@ -9,5 +9,7 @@
 		}
 	});
 
-	$('body').removeClass('preload');
+	var _loader = setTimeout(function() {
+		$('body').removeClass('preload');
+	}, 10);
 })(jQuery);
