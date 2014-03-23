@@ -54,6 +54,19 @@
 	-webkit-transform: translateX(-50%) translateY(-50%);
 }
 
+@font-face {
+	font-family: 'archisticonormal';
+	src: url('../fonts/Archistico_Simple-webfont.eot');
+	src: url('../fonts/Archistico_Simple-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('../fonts/Archistico_Simple-webfont.woff') format('woff'),
+		 url('../fonts/Archistico_Simple-webfont.ttf') format('truetype'),
+		 url('../fonts/Archistico_Simple-webfont.svg#archisticonormal') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+
 // reset
 * {
 	box-sizing: border-box;
@@ -110,15 +123,19 @@ nav {
 	width: 50%;
 
 	&.nav-visible {
-		width: 80%;
+		width: 70%;
 	}
 
 	ul {
 		list-style: none;
-		.v-align;
+		margin-top: 4rem;
 		width: 100%;
 
 		li {
+			a {
+				padding: 1rem;
+			}
+
 			a,
 			a:link,
 			a:visited,
@@ -126,16 +143,11 @@ nav {
 			&:active {
 				color: @white;
 				display: inline-block;
-				padding: 1rem;
 				text-decoration: none;
 				width: 100%;
 			}
 			a:hover {
 				background: darken(@blue, 10%);
-
-				&:after {
-					content: " →";
-				}
 			}
 		}
 	}
@@ -149,7 +161,7 @@ main {
 	width: 100%;
 
 	&.nav-visible {
-		margin-left: 80%;
+		margin-left: 70%;
 	}
 }
 
@@ -160,7 +172,11 @@ main {
 	z-index: 1;
 
 	h2 {
-		padding: 0 0 1rem 0;
+		color: #fff;
+		font-family: archisticonormal;
+		font-size: 2.5em;
+		font-weight: normal;
+		padding: 0 0 0.5rem 0;
 		//.text-shadow(1px, 1px, 1px, darken(@blue, 20%));
 	}
 
