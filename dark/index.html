@@ -8,6 +8,14 @@
 		<script src="js/vendor/modernizr-2.6.2.min.js"></script>
 
 		<link rel="stylesheet" href="css/grid.css">
+
+		<script src="/socket.io/socket.io.js"></script>
+        <script>
+            var socket = io.connect(window.location);
+            socket.on('changed', function() {
+                window.location.reload();
+            });
+        </script>
 	</head>
 
 	<body class="preload">
