@@ -100,12 +100,14 @@ header {
 		color: @blue;
 		cursor: pointer;
 		display: block;
+		font-size: 2rem;
 		font-size: 10vw;
+		height: 2rem;
 		height: 10vw;
 		margin: 1rem;
-		position: absolute;
 		text-align: center;
-		.transition();
+		.transition;
+		width: 2rem;
 		width: 10vw;
 
 		&.nav-visible {
@@ -119,7 +121,7 @@ nav {
 	background-color: darken(@blue, 20%); 
 	height: 100%;
 	position: absolute;
-	.transition();
+	.transition;
 	width: 50%;
 
 	&.nav-visible {
@@ -133,17 +135,17 @@ nav {
 
 		li {
 			a {
-				padding: 1rem;
+				padding: 1.5rem 1rem;
 			}
 
 			a,
 			a:link,
 			a:visited,
-			a:hover,
 			&:active {
 				color: @white;
 				display: inline-block;
 				text-decoration: none;
+				.transition;
 				width: 100%;
 			}
 			a:hover {
@@ -176,8 +178,7 @@ main {
 		font-family: archisticonormal;
 		font-size: 2.5em;
 		font-weight: normal;
-		padding: 0 0 0.5rem 0;
-		//.text-shadow(1px, 1px, 1px, darken(@blue, 20%));
+		.text-shadow(1px, 1px, 1px, darken(@blue, 20%));
 	}
 
 	p {

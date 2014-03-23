@@ -1,15 +1,32 @@
-(function($) {
-	$('header span').on('click', function() {
-		$('header span, main, nav').toggleClass('nav-visible');
+window.onload = function() {
+	var _loader,
+		_navBtn = document.querySelector("header span"),
+		_nav = document.querySelector("body > nav"),
+		_main = document.querySelector("main"),
+		_navSelectors = [];
 
-		if ($('header span').hasClass('nav-visible')) {
-			$('main').on('click', function() {
-				$('header span, main, nav').removeClass('nav-visible');
-			});
+	_navSelectors.push(_navBtn, _nav, _main);
+
+	// Toggle left nav and animate all neccessary components
+	function _toggleNav() {
+		var _className = "nav-visible";
+
+		if (_navBtn.className === "nav-visible") _className = "";
+
+		for (var i = 0; i < _navSelectors.length; i++) {
+			_navSelectors[i].className = _className;
 		}
-	});
+	}
 
-	var _loader = setTimeout(function() {
-		$('body').removeClass('preload');
+	// Get it started!
+	function _init() {
+		_navBtn.addEventListener("click", _toggleNav);
+	}
+
+	_init();
+
+	// Remove preload class to start CSS transitions
+	_loader = setTimeout(function() {
+		document.body.className = "";
 	}, 10);
-})(jQuery);
+};
