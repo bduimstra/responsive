@@ -1,14 +1,14 @@
 window.onload = function() {
 	var _loader,
-		_navBtn = document.querySelector("header span"),
-		_nav = document.querySelector("body > nav"),
-		_main = document.querySelector("main"),
+		_navBtn = document.querySelector("main > span"),
+		_nav = document.querySelector("body nav"),
+		_main = document.querySelector("main > section"),
 		_navSelectors = [];
 
 	_navSelectors.push(_navBtn, _nav, _main);
 
 	// Toggle left nav and animate all neccessary components
-	function _toggleNav() {
+	function toggleNav() {
 		var _className = "nav-visible";
 
 		if (_navBtn.className === "nav-visible") _className = "";
@@ -18,12 +18,22 @@ window.onload = function() {
 		}
 	}
 
-	// Get it started!
-	function _init() {
-		_navBtn.addEventListener("click", _toggleNav);
+	function clickMain() {
+		if (_main.className === "nav-visible") {
+			for (var i = 0; i < _navSelectors.length; i++) {
+				_navSelectors[i].className = "";
+			}
+		}
 	}
 
-	_init();
+	function init() {
+		// Event handlers
+		_navBtn.addEventListener("click", toggleNav);
+		_main.addEventListener("click", clickMain);
+	}
+
+	// Get it started!
+	init();
 
 	// Remove preload class to start CSS transitions
 	_loader = setTimeout(function() {
