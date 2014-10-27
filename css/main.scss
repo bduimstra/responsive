@@ -1,0 +1,89 @@
+@import 'variables';
+@import 'mixins';
+@import 'reset';
+
+body {
+	@extend .font-regular;
+	color: lighten($black, 20%);
+}
+
+header {
+	@include gradient(lighten($main, 75%), lighten($main, 65%));
+
+	h1 {
+		@extend .font-regular;
+		@include font-shadow(1px, 1px, 1px, rgba($black, 0.2));
+		color: $white;
+		font-size: 1.25rem;
+		text-align: center;
+		padding: 0.5rem;
+	}
+}
+
+nav {
+	ul {
+		list-style: none;
+		padding: 0;
+
+		li {
+			a {
+				@extend .font-bolder;
+				color: $blue;
+				text-decoration: none;
+			}
+		}
+	}
+}
+
+main {
+	padding: 1rem;
+}
+
+h1 {
+}
+
+.button {
+	@include gradient(lighten($blue, 30%), lighten($blue, 20%));
+	@include border-radius(0.1rem);
+	border: none;
+	outline: none;
+	cursor: pointer;
+	font-size: 0.75rem;
+	@extend .font-regular;
+	padding: 0.75rem;
+	margin: 0 0.5rem 0.75rem 0;
+
+	&.small {
+		width: 25%;
+	}
+
+	&.medium {
+		width: 50%;
+	}
+
+	&.large {
+		width: 75%;
+	}
+
+	&:hover,
+	&:active {
+		@include gradient(lighten($blue, 20%), lighten($blue, 10%));
+	}
+}
+
+button.button {
+}
+
+a.button {
+	display: inline-block;
+	text-align: center;
+	text-decoration: none;
+	color: $main;
+
+	&:link,
+	&:visited,
+	&:hover,
+	&:active {
+		color: $main;
+	}
+}
